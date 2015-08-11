@@ -98,8 +98,10 @@ function CIML(canvas,x,y,w,h){
 		if(dw==undefined)dw=this.idata.width;
 		if(dh==undefined)dh=this.idata.height;
 		var hasil2=document.getElementById(cv);
-		hasil2.width=dw;
-		hasil2.height=dh;
+		if(hasil2.width==0 && hasil2.height==0){
+			hasil2.width=dw;
+			hasil2.height=dh;
+		}
 		cv=hasil2.getContext("2d");
 		cv.putImageData(this.idata,x,y,dx,dy,dw,dh);
 	}
