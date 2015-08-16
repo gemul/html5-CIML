@@ -92,6 +92,31 @@ function CIML(canvas,x,y,w,h){
 			}
 		}
 	}
+	//getAvgRect(x,y,<rect size>);
+	this.getAvgRect=function(x,y,s){
+		var arr=Array(0,0,0,0);
+		var fact=0;
+		var c=Math.floor(s/2);
+		for(var oy=0-c;oy<=c;oy++){
+			for(var ox=0-c;ox<=c;ox++){
+				var nx=x+ox;
+				var ny=y+oy;
+				if(this.inRange(nx,ny)){
+					var tmp=this.getPixel(nx,ny);
+					arr[0]=arr[0]+tmp[0];
+					arr[1]=arr[1]+tmp[1];
+					arr[2]=arr[2]+tmp[2];
+					arr[3]=arr[3]+tmp[3];
+					fact++;
+				}
+			}
+		}
+		arr[0]=arr[0]/fact;
+		arr[1]=arr[1]/fact;
+		arr[2]=arr[2]/fact;
+		arr[3]=arr[3]/fact;
+		return arr;
+	}
 	this.render=function(cv,x,y,dx,dy,dw,dh){
 		if(dx==undefined)dx=0;
 		if(dy==undefined)dy=0;
