@@ -17,7 +17,8 @@ above code creates a CIML object as **sourceImg** variable, which loads whole ca
 ###Getting pixel data from x,y coordinate
 A pixel data is an array containing 4 elements of integer (0-255) which represent R,G,B,A in order.
 To get a pixel data, use:<br>
-getPixel(x,y);
+getPixel(x,y);<br>
+returns Array;
 ```
 var pixel=sourceImg.getPixel(0,0);
 ```
@@ -55,3 +56,14 @@ render(canvas id **string**,start x **int**,start y **int**,dirty x **int**,dirt
 sourceImg.render('source',0,0);
 ```
 will redraw the source canvas.
+
+###Get Average of a Rectangle
+
+Get average of pixel value from a square with the center of x,y and radius of rect size using<br>
+```
+getAvgRect(x **int**,y **int**,size **int**);<br>
+```
+for example, to get the average of a 3x3 rectangle with the center pixel of 10,10 the parameters would be:<br>
+```
+getAvgRect(10,10,2);
+```
